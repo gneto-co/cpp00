@@ -6,7 +6,7 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 17:07:41 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/07/19 19:01:56 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/11/05 10:32:56 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	main(int ac, char **av)
 			}
             /* print word */
             std::cout << av[i];
-            /* put a space between the words */
-            if (av[i] != NULL)
-                std::cout << " ";
 		}
         /* new line */
         std::cout << std::endl;

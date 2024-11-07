@@ -6,45 +6,46 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 21:28:03 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/10/11 14:30:49 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:02:46 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Contact.hpp"
 #include "../includes/PhoneBook.hpp"
 
-int	main(void)
+int main(void)
 {
 	PhoneBook PhoneBook;
-	bool run = true;
 	std::string command;
+	int i = 0;
 
-	PhoneBook.show_instruction();
-	std::cout << PROMPT;
-	while (run && std::getline(std::cin, command))
+	while (1)
 	{
+		std::cout << GREEN "[" << i << "]" RESET << std::endl;
+		std::cout << MAIN_MESSAGE << PROMPT << CYAN;
+		std::getline(std::cin, command);
+		std::cout << RESET << std::endl;
+		MOVE_CURSOR_UP(7);
 		if (std::cin.eof() == true)
 		{
 			std::cout << EOF_MESSAGE << std::endl;
-			exit(0);
+			exit(1);
 		}
-		else if (command.compare("ADD") == 0)
-			PhoneBook.set_information();
-		else if (command.compare("SEARCH") == 0)
-			PhoneBook.get_information();
-		else if (command.compare("EXIT") == 0)
+		else if (command == ADD)
+		{
+			std::cout << CLEAR_SCREEN_FORWARD_CURSOR;
+			PhoneBook.add();
+		}
+		else if (command == SEARCH)
+		{
+			std::cout << CLEAR_SCREEN_FORWARD_CURSOR;
+			PhoneBook.search();
+		}
+		else if (command == EXIT)
 		{
 			std::cout << EXIT_MESSAGE << std::endl;
-			run = false;
-			continue ;
+			break;
 		}
-		command.clear();
-		PhoneBook.show_instruction();
-		std::cout << PROMPT;
-	}
-	if (run)
-	{
-		std::cout << EOF_MESSAGE << command << std::endl << EXIT_MESSAGE << std::endl;
+		i++;
 	}
 	return (0);
 }

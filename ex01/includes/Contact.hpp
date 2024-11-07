@@ -6,41 +6,30 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 10:47:23 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/07/20 17:13:28 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/11/07 08:48:30 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-# include <cstdlib>
-# include <iomanip>
-# include <iostream>
-# include <string>
-
-# include "Strings.h"
+# include "includes.h"
 
 class Contact
 {
   private:
-	static std::string _fields_name[5];
-	std::string _informations[5];
-
-	enum	Field
-	{
-		FirstName = 0,
-		LastName,
-		NickName,
-		PhoneNumber,
-		DarkestSecret
-	};
-
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_number;
+	std::string darkest_secret;
   public:
 	Contact(void);
 	~Contact(void);
 
-	bool set_contact();
-	void get_contact(int index) const;
+	void new_contact();
+	void print_contact_1(int i) const;
+	void print_contact_2(int i) const;
 };
 
 #endif

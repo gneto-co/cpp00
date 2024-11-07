@@ -6,32 +6,28 @@
 /*   By: gneto-co <gneto-co@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 10:47:15 by gneto-co          #+#    #+#             */
-/*   Updated: 2024/07/20 16:50:32 by gneto-co         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:38:51 by gneto-co         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-# include "Contact.hpp"
-# include <cstdlib>
-# include <iomanip>
-# include <string>
+#include "Contact.hpp"
 
 class PhoneBook
 {
-  private:
+private:
 	Contact _contacts[8];
 	int _index;
-	bool _full;
+	int _max;
 
-  public:
+public:
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	void set_information(void);
-	void get_information(void) const;
-	void show_instruction(void);
+	void add(void);
+	void search(void) const;
 };
 
 #endif
